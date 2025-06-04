@@ -15,8 +15,17 @@ user_second=input("Give again two names: ") #ask the user to give two names
 answer_2=user_second.upper() #make the answer uppercase
 print(answer_2)
 
-split_names_1=answer_1.split()
-split_names_2=answer_2.split()
-print(split_names_1)
-print(type(split_names_2))
+split_index_1=answer_1.find(" ")
+split_index_2=answer_2.find(" ")
 
+print(split_index_1) #finds the index of the space
+
+first_name_1=answer_1[0:split_index_1]
+print(first_name_1)
+first_name_2=answer_2[0:split_index_2]
+print(first_name_2)
+
+last_name_1=answer_1[split_index_1+1:len(answer_1)]
+print(last_name_1)
+last_name_2=answer_2[split_index_2+1:len(answer_2)]
+print(last_name_2)
