@@ -20,16 +20,3 @@ split_names_2=answer_2.split()
 print(split_names_1)
 print(type(split_names_2))
 
-first_name_1=split_names_1[0]
-first_name_2=split_names_2[0]
-
-last_name_1=split_names_1[1]
-last_name_2=split_names_2[1]
-
-half_first_name_1=len(first_name_1)/2
-half_first_name_2=len(first_name_2)/2
-
-half_last_name_1=len(last_name_1)/2
-half_last_name_2=len(last_name_2)/2
-
-print(half_first_name_1)
