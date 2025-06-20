@@ -33,3 +33,6 @@ elif answer_1=="RIGHT":
 else:
     print("You can only type left or right")
     print("Pick a direction")
+
+
+## MESSING WITH YOUR CODE
