@@ -30,4 +30,10 @@ tiles = "hijklmnop"
 #ink, kiln, oil
 
 valid_list = []
-print(tiles)
+
+for i in tiles:
+    if i in words:
+        valid_list.append(i)
+
+
+print(valid_list)
