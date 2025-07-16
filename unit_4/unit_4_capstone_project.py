@@ -14,26 +14,60 @@
 
 
 #Valid words as a big string
-words ="""art 
+words ="""
+art 
 hue 
 ink
 oil
 clay
 film
 kiln
-crosshatching
-"""
+crosshatching"""
 
+#print(words)
+#print(type(words))
 
 tiles = "hijklmnop"
+#print(tiles)
+#print(type(tiles))
 
-#ink, kiln, oil
+#ink, kiln, oil this should be the input!
 
-valid_list = []
+#My Code
 
-for i in tiles:
-    if i in words:
-        valid_list.append(i)
+#first I need to create a tuple of strings
+
+valid_words=tuple(words.split("\n"))
+print (valid_words) #creates a tuples of single characters, spaces and \n
+#here I succeeded the objective to create a tuple of strings
 
 
-print(valid_list)
+
+#Book correction
+
+all_valid_words=() #Empty tuple for all valid words
+start = 0 #initializes a pointer to the beginning of index search
+end = 0 #initializes a pointer to the end of index search
+found_words=() #empty tuple for words found in tiles
+
+for char in words: #iterates through every character
+    if char=="\n": #checks whether the character is a newline
+        all_valid_words=all_valid_words+(words[start:end],) #adds singleton tuple to current all valid words tuple
+        start = end + 1 #moves start and end pointers to start of next word.
+        end = end + 1
+    else:
+        end = end + 1 #moves only end pointer
+
+print(all_valid_words)
+
+for word in all_valid_words: #looks for every valid words
+    tiles_left=tiles #tiles_left deals with duplicate tiles
+    for letter in word: #looks at every letter in a valid word
+        if letter not in tiles_left: #stops looking if letter not in tiles_left
+            break
+        else:
+            index=tiles_left.find(letter) #finds position of letters in tiles_left
+            tiles_left=tiles_left[:index]+tiles_left[index+1:] #removes letter and makes a new tiles_left
+    if len(word) == len(tiles) - len(tiles_left): #checks whether found entire word
+        found_words=found_words +(word,) #adds word to found_words
+print(found_words)
